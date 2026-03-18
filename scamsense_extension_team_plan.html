@@ -1,0 +1,194 @@
+
+<style>
+  .phase-bar { display:flex; gap:0; margin-bottom:24px; border-radius:var(--border-radius-md); overflow:hidden; border:0.5px solid var(--color-border-tertiary); }
+  .phase-seg { flex:1; padding:8px 10px; text-align:center; font-size:11px; font-weight:500; }
+  .p1 { background:#E6F1FB; color:#0C447C; }
+  .p2 { background:#E1F5EE; color:#085041; }
+  .p3 { background:#FAEEDA; color:#633806; }
+  .p4 { background:#EEEDFE; color:#3C3489; }
+  .team-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-bottom:24px; }
+  .member-card { border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); overflow:hidden; }
+  .member-header { padding:12px 14px; }
+  .member-role { font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:2px; }
+  .member-name { font-size:15px; font-weight:500; color:var(--color-text-primary); }
+  .member-tag { font-size:11px; margin-top:2px; }
+  .member-body { padding:10px 14px 14px; }
+  .task-item { font-size:12px; color:var(--color-text-secondary); padding:5px 0; border-bottom:0.5px solid var(--color-border-tertiary); line-height:1.4; }
+  .task-item:last-child { border-bottom:none; }
+  .task-phase { font-size:10px; font-weight:500; padding:1px 6px; border-radius:8px; float:right; margin-left:6px; }
+  .tp1 { background:#E6F1FB; color:#185FA5; }
+  .tp2 { background:#E1F5EE; color:#0F6E56; }
+  .tp3 { background:#FAEEDA; color:#854F0B; }
+  .tp4 { background:#EEEDFE; color:#534AB7; }
+  .hfe { background:#E6F1FB; color:#0C447C; }
+  .hbe { background:#E1F5EE; color:#085041; }
+  .hint { background:#FAEEDA; color:#633806; }
+
+  .timeline { margin-bottom:24px; }
+  .tl-row { display:grid; grid-template-columns:80px 1fr 1fr 1fr; gap:10px; margin-bottom:8px; align-items:start; }
+  .tl-phase-label { font-size:11px; font-weight:500; color:var(--color-text-secondary); padding-top:6px; }
+  .tl-cell { border-radius:var(--border-radius-md); padding:7px 10px; font-size:11px; line-height:1.4; }
+  .tl-header { font-size:11px; font-weight:500; color:var(--color-text-tertiary); padding:0 10px; }
+  .c-fe { background:#E6F1FB; color:#0C447C; }
+  .c-be { background:#E1F5EE; color:#085041; }
+  .c-in { background:#FAEEDA; color:#633806; }
+
+  .stack-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-bottom:20px; }
+  .stack-card { background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; }
+  .stack-who { font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:0.04em; color:var(--color-text-tertiary); margin-bottom:4px; }
+  .stack-items { font-size:12px; color:var(--color-text-secondary); line-height:1.8; }
+
+  .arch-note { background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px 14px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; border-left:2px solid var(--color-border-info); margin-bottom:10px; }
+  .section-head { font-size:13px; font-weight:500; color:var(--color-text-primary); margin:20px 0 10px; }
+</style>
+
+<div style="padding:4px 0">
+
+  <div class="section-head">Project phases</div>
+  <div class="phase-bar">
+    <div class="phase-seg p1">Phase 1<br>Setup (hr 0–2)</div>
+    <div class="phase-seg p2">Phase 2<br>Core build (hr 2–8)</div>
+    <div class="phase-seg p3">Phase 3<br>Integration (hr 8–14)</div>
+    <div class="phase-seg p4">Phase 4<br>Polish & deploy (hr 14–20)</div>
+  </div>
+
+  <div class="section-head">Team roles & task breakdown</div>
+  <div class="team-grid">
+
+    <div class="member-card">
+      <div class="member-header" style="background:#E6F1FB">
+        <div class="member-role" style="color:#185FA5">Person A</div>
+        <div class="member-name">Frontend</div>
+        <div class="member-tag" style="color:#378ADD">Chrome extension UI</div>
+      </div>
+      <div class="member-body">
+        <div class="task-item"><span class="task-phase tp1">P1</span>Init Chrome extension manifest v3, folder structure</div>
+        <div class="task-item"><span class="task-phase tp1">P1</span>Setup content script + popup HTML shell</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Build floating overlay widget on page</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Risk badge UI (safe / suspicious / scam)</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Popup panel: toggle on/off, scan result card</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Page text extraction logic (content.js)</div>
+        <div class="task-item"><span class="task-phase tp3">P3</span>Wire content script → background.js → API</div>
+        <div class="task-item"><span class="task-phase tp3">P3</span>Handle loading state + error states in UI</div>
+        <div class="task-item"><span class="task-phase tp4">P4</span>Animation, dark mode, final polish</div>
+        <div class="task-item"><span class="task-phase tp4">P4</span>Package extension for Chrome Web Store demo</div>
+      </div>
+    </div>
+
+    <div class="member-card">
+      <div class="member-header" style="background:#E1F5EE">
+        <div class="member-role" style="color:#0F6E56">Person B</div>
+        <div class="member-name">Backend</div>
+        <div class="member-tag" style="color:#1D9E75">AI pipeline & RAG</div>
+      </div>
+      <div class="member-body">
+        <div class="task-item"><span class="task-phase tp1">P1</span>Setup Google Cloud Workstation + Firebase project</div>
+        <div class="task-item"><span class="task-phase tp1">P1</span>Configure Vertex AI Search datastore</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Index scam knowledge base into Vertex AI Search</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Build Cloud Function: receive text → RAG query</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Gemini 2 prompt engineering + JSON output schema</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Firebase Auth + API key protection</div>
+        <div class="task-item"><span class="task-phase tp3">P3</span>Expose REST endpoint for extension to call</div>
+        <div class="task-item"><span class="task-phase tp3">P3</span>Test RAG retrieval quality with scam samples</div>
+        <div class="task-item"><span class="task-phase tp4">P4</span>Deploy Cloud Function to production on GCP</div>
+        <div class="task-item"><span class="task-phase tp4">P4</span>Add CORS headers, rate limiting for demo</div>
+      </div>
+    </div>
+
+    <div class="member-card">
+      <div class="member-header" style="background:#FAEEDA">
+        <div class="member-role" style="color:#854F0B">Person C</div>
+        <div class="member-name">Integration</div>
+        <div class="member-tag" style="color:#BA7517">Firebase Studio + QA</div>
+      </div>
+      <div class="member-body">
+        <div class="task-item"><span class="task-phase tp1">P1</span>Design Firebase Studio agentic workflow diagram</div>
+        <div class="task-item"><span class="task-phase tp1">P1</span>Setup shared GitHub repo + branch rules</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Build Firebase Studio agent: orchestrate RAG + Gemini</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Curate Malaysian scam dataset (BNM CCID + PDRM)</div>
+        <div class="task-item"><span class="task-phase tp2">P2</span>Define agentic steps: extract → retrieve → score → explain</div>
+        <div class="task-item"><span class="task-phase tp3">P3</span>Connect frontend API calls to backend endpoint</div>
+        <div class="task-item"><span class="task-phase tp3">P3</span>End-to-end test: open FB / WhatsApp Web / Telegram Web</div>
+        <div class="task-item"><span class="task-phase tp3">P3</span>Fix mismatched data contracts between FE and BE</div>
+        <div class="task-item"><span class="task-phase tp4">P4</span>Prepare demo script + test cases for judges</div>
+        <div class="task-item"><span class="task-phase tp4">P4</span>Record backup demo video in case of live failure</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">Hour-by-hour timeline</div>
+  <div class="timeline">
+    <div class="tl-row">
+      <div></div>
+      <div class="tl-header">Person A — Frontend</div>
+      <div class="tl-header">Person B — Backend</div>
+      <div class="tl-header">Person C — Integration</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-phase-label" style="color:#185FA5">Hr 0–2<br>Setup</div>
+      <div class="tl-cell c-fe">Manifest v3 scaffold, content + popup shell</div>
+      <div class="tl-cell c-be">GCP workstation, Firebase project, Vertex AI Search init</div>
+      <div class="tl-cell c-in">GitHub repo, Firebase Studio workspace, scam dataset prep</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-phase-label" style="color:#0F6E56">Hr 2–8<br>Core build</div>
+      <div class="tl-cell c-fe">Overlay widget, risk badge, popup panel, page text extractor</div>
+      <div class="tl-cell c-be">Cloud Function, Vertex RAG pipeline, Gemini 2 prompt</div>
+      <div class="tl-cell c-in">Firebase Studio agent flow, dataset indexing, agentic steps</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-phase-label" style="color:#854F0B">Hr 8–14<br>Integration</div>
+      <div class="tl-cell c-fe">Wire API calls, loading + error states, handle JSON response</div>
+      <div class="tl-cell c-be">Expose REST endpoint, CORS, test with real scam pages</div>
+      <div class="tl-cell c-in">Connect all pieces, E2E testing on WhatsApp Web + Telegram</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-phase-label" style="color:#534AB7">Hr 14–20<br>Polish</div>
+      <div class="tl-cell c-fe">UI polish, dark mode, package extension ZIP</div>
+      <div class="tl-cell c-be">Deploy to GCP production, rate limit, monitoring</div>
+      <div class="tl-cell c-in">Demo script, judge test cases, backup video</div>
+    </div>
+  </div>
+
+  <div class="section-head">Tech ownership by person</div>
+  <div class="stack-grid">
+    <div class="stack-card">
+      <div class="stack-who" style="color:#185FA5">Person A owns</div>
+      <div class="stack-items">
+        manifest.json<br>
+        content.js<br>
+        background.js<br>
+        popup.html / popup.js<br>
+        overlay.css
+      </div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-who" style="color:#0F6E56">Person B owns</div>
+      <div class="stack-items">
+        Cloud Function (Node/Python)<br>
+        Vertex AI Search config<br>
+        Gemini 2 API calls<br>
+        Firebase Auth rules<br>
+        GCP deployment config
+      </div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-who" style="color:#854F0B">Person C owns</div>
+      <div class="stack-items">
+        Firebase Studio agent<br>
+        Scam knowledge base JSON<br>
+        API contract (request/response schema)<br>
+        E2E test scripts<br>
+        Demo + pitch deck
+      </div>
+    </div>
+  </div>
+
+  <div class="arch-note">
+    Critical sync point at Hr 8: Person C defines the API contract (what the extension sends, what the backend returns) so A and B can work independently without breaking each other's code.
+  </div>
+  <div class="arch-note">
+    Fallback plan: If Vertex AI Search indexing takes too long, Person B can mock the RAG response with a hardcoded scam pattern list so the extension still demos end-to-end.
+  </div>
+
+</div>
